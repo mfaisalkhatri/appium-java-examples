@@ -66,7 +66,8 @@ public class DriverManager {
         capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
         capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, "Pixel_5_API_30");
         capabilities.setCapability (MobileCapabilityType.APP, APP_PATH);
-        capabilities.setCapability ("appActivity", "");
+        capabilities.setCapability ("appPackage", "com.wdiodemoapp");
+        capabilities.setCapability ("appActivity", "com.wdiodemoapp.MainActivity");
         capabilities.setCapability ("noReset", false);
         capabilities.setCapability (MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         return capabilities;
