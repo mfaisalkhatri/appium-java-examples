@@ -1,6 +1,10 @@
 package io.github.mfaisalkhatri.drivers;
 
 import static io.appium.java_client.service.local.flags.GeneralServerFlag.BASEPATH;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.LOG_LEVEL;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.SESSION_OVERRIDE;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_DRIVERS;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_PLUGINS;
 
 import java.io.File;
 import java.time.Duration;
@@ -31,7 +35,7 @@ public class DriverManager {
 
     public static void createAndroidDriver () {
         startServer ();
-        DRIVER.set (new AndroidDriver (service.getUrl (), setCapabilities ()));
+        setDriver (new AndroidDriver (service.getUrl (), setCapabilities ()));
         setupDriverTimeouts ();
     }
 
@@ -44,6 +48,7 @@ public class DriverManager {
         }
     }
 
+    @SuppressWarnings ("unchecked")
     public static <D extends AppiumDriver> D getDriver () {
         return (D) DriverManager.DRIVER.get ();
     }
@@ -77,12 +82,13 @@ public class DriverManager {
         AppiumServiceBuilder builder = new AppiumServiceBuilder ();
         builder.withIPAddress ("127.0.0.1")
             .usingPort (4723)
-            .withAppiumJS (
-                new File ("C:\\Users\\Faisal Khatri\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-            .usingDriverExecutable (new File ("E:\\Program Files\\nodejs\\node.exe"))
+            //.usingDriverExecutable (new File ("E:\\Program Files\\nodejs\\node.exe"))
             .withArgument (BASEPATH, "/wd/hub")
-            .withArgument (GeneralServerFlag.SESSION_OVERRIDE)
-            .withArgument (GeneralServerFlag.LOG_LEVEL, "debug");
+            .withArgument (SESSION_OVERRIDE)
+            .withArgument (LOG_LEVEL, "debug")
+            .withArgument (USE_DRIVERS, "uiautomator2")
+            .withArgument (USE_PLUGINS, "element-wait");
+
 
         service = AppiumDriverLocalService.buildService (builder);
         service.start ();
