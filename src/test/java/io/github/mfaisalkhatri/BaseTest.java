@@ -13,12 +13,12 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
 
     @BeforeClass
-    public void testSetup()  {
-        createAndroidDriver();
+    public void testSetup () {
+        createAndroidDriver ();
     }
 
     @AfterClass
-    public void tearDown() {
+    public void tearDown () {
         quitSession ();
     }
 

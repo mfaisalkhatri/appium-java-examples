@@ -1,6 +1,9 @@
 package io.github.mfaisalkhatri;
 
 
+import static org.testng.Assert.assertEquals;
+
+import io.github.mfaisalkhatri.pages.HomePage;
 import org.testng.annotations.Test;
 
 /**
@@ -10,9 +13,9 @@ import org.testng.annotations.Test;
 public class AppiumTest extends BaseTest{
 
     @Test
-    public void appiumServerTest () {
-
-        System.out.println ("Server and Android Driver started successfully!!");
+    public void testHomePageTagLine () {
+        HomePage homePage = new HomePage ();
+        assertEquals(homePage.tagLine (),"Demo app for the appium-boilerplate");
 
     }
 }

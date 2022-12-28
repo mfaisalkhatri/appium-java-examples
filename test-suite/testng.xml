@@ -5,7 +5,7 @@
         <classes>
             <class name="io.github.mfaisalkhatri.AppiumTest">
                 <methods>
-                    <include name="appiumServerTest"/>
+                    <include name="testHomePageTagLine"/>
                 </methods>
             </class>
         </classes>
