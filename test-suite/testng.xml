@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Sample tests ">
-    <test name = "Android Scenario 1">
+    <test name = "Android Scenario 1" enabled="false">
         <classes>
             <class name="io.github.mfaisalkhatri.AppiumTest">
                 <methods>
@@ -10,4 +10,14 @@
             </class>
         </classes>
     </test>
+    <test name = "Android Wdio Test">
+        <classes>
+            <class name="io.github.mfaisalkhatri.test.Wdiotest">
+                <methods>
+                    <include name="testTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite> <!-- Suite -->

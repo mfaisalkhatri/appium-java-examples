@@ -7,6 +7,8 @@ import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_DR
 import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_PLUGINS;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import io.appium.java_client.AppiumDriver;
@@ -36,9 +38,10 @@ public class DriverManager {
     private static final Logger                    LOG    = LogManager.getLogger ("DriverManager.class");
     private static       AppiumDriverLocalService  service;
 
-    public static void createAndroidDriver () {
+    public static void createAndroidDriver () throws MalformedURLException {
         startServer ();
-        setDriver (new AndroidDriver (service.getUrl (), uiAutomator2Options ()));
+      //  setDriver (new AndroidDriver (service.getUrl (), uiAutomator2Options ()));
+        setDriver(new AndroidDriver (new URL ("http://localhost:4723/wd/hub"),uiAutomator2Options ()));
         setupDriverTimeouts ();
     }
 
@@ -94,7 +97,8 @@ public class DriverManager {
 
     private static UiAutomator2Options uiAutomator2Options () {
 
-        UiAutomator2Options uiAutomator2Options = new UiAutomator2Options ()
+        UiAutomator2Options uiAutomator2Options;
+        uiAutomator2Options = new UiAutomator2Options ()
             .setAvd ("Pixel_XL_API_30")
             .setAvdLaunchTimeout (Duration.ofSeconds (300))
             .setAvdReadyTimeout (Duration.ofSeconds (100))

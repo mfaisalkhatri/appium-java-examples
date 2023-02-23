@@ -18,4 +18,5 @@ public class AppiumTest extends BaseTest{
         assertEquals(homePage.tagLine (),"Demo app for the appium-boilerplate");
 
     }
+
 }
