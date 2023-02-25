@@ -39,7 +39,7 @@ public class DriverManager {
     private static       AppiumDriverLocalService  service;
 
     public static void createAndroidDriver () throws MalformedURLException {
-        startServer ();
+      //  startServer ();
       //  setDriver (new AndroidDriver (service.getUrl (), uiAutomator2Options ()));
         setDriver(new AndroidDriver (new URL ("http://localhost:4723/wd/hub"),uiAutomator2Options ()));
         setupDriverTimeouts ();
@@ -50,7 +50,7 @@ public class DriverManager {
             LOG.info ("Closing the driver...");
             getDriver ().quit ();
             DRIVER.remove ();
-            stopServer ();
+         //   stopServer ();
         }
     }
 
@@ -99,10 +99,10 @@ public class DriverManager {
 
         UiAutomator2Options uiAutomator2Options;
         uiAutomator2Options = new UiAutomator2Options ()
-            .setAvd ("Pixel_XL_API_30")
+            .setAvd ("Pixel_XL_API_33")
             .setAvdLaunchTimeout (Duration.ofSeconds (300))
             .setAvdReadyTimeout (Duration.ofSeconds (100))
-            .setDeviceName ("Pixel_XL_API_30")
+            .setDeviceName ("Pixel_XL_API_33")
             .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
             .setApp (APP_PATH)
             .setAppPackage ("com.wdiodemoapp")

@@ -14,4 +14,9 @@ public class HomePage {
         return getDriver ().findElement (AppiumBy.androidUIAutomator ("new UiSelector().text(\"WEBDRIVER\")"))
             .getText ();
     }
+
+    public void openMenu(String menuName) {
+        getDriver ().findElement (AppiumBy.accessibilityId (menuName)).click ();
+
+    }
 }
