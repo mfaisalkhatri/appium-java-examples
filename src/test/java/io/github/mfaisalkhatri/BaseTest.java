@@ -3,6 +3,8 @@ package io.github.mfaisalkhatri;
 import static io.github.mfaisalkhatri.drivers.DriverManager.createAndroidDriver;
 import static io.github.mfaisalkhatri.drivers.DriverManager.quitSession;
 
+import java.net.MalformedURLException;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -13,12 +15,12 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
 
     @BeforeClass
-    public void testSetup()  {
-        createAndroidDriver();
+    public void testSetup () throws MalformedURLException {
+        createAndroidDriver ();
     }
 
     @AfterClass
-    public void tearDown() {
+    public void tearDown () {
         quitSession ();
     }
 
