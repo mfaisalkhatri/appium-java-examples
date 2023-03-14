@@ -1,12 +1,12 @@
 package io.github.mfaisalkhatri;
 
-import static io.github.mfaisalkhatri.drivers.DriverManager.createAndroidDriver;
-import static io.github.mfaisalkhatri.drivers.DriverManager.quitSession;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.createAndroidDriver;
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.quitSession;
 
 /**
  * @author Faisal Khatri
@@ -15,13 +15,13 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
 
     @BeforeClass
-    public void testSetup () throws MalformedURLException {
-        createAndroidDriver ();
+    public void testSetup() throws MalformedURLException {
+        createAndroidDriver();
     }
 
     @AfterClass
-    public void tearDown () {
-        quitSession ();
+    public void tearDown() {
+        quitSession();
     }
 
 }

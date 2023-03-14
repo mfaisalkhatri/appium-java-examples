@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Appium Sample tests ">
-    <test name="Android Scenario 1" enabled="false">
+<suite name="Appium Sample tests">
+    <test name="WebDriverIO Android Tests">
         <classes>
             <class name="io.github.mfaisalkhatri.AppiumTest">
                 <methods>
-                    <include name="testHomePageTagLine"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Android Wdio Test">
-        <classes>
-            <class name="io.github.mfaisalkhatri.test.Wdiotest">
-                <methods>
-                    <include name="testTitle"/>
+                    <include name="testHomePageTitle"/>
                     <include name="testSignUp"/>
+                    <include name="testForm"/>
                 </methods>
             </class>
         </classes>
     </test>
-
 </suite> <!-- Suite -->
