@@ -3,18 +3,9 @@ package io.github.mfaisalkhatri.pages.wdio;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
 
-import static io.github.mfaisalkhatri.drivers.DriverManager.getDriver;
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 public class FormPage {
-
-    private WebElement inputField() {
-        return getDriver().findElement(AppiumBy.accessibilityId("text-input"));
-    }
-
-    public String getInputText() {
-        return getDriver().findElement(AppiumBy.accessibilityId("input-text-result")).getText();
-    }
-
 
     private WebElement switchBtn() {
         return getDriver().findElement(AppiumBy.accessibilityId("switch"));
@@ -28,7 +19,7 @@ public class FormPage {
         return getDriver().findElement(AppiumBy.accessibilityId("Dropdown"));
     }
 
-    public void selectDropdownValue(int option) {
+    private void selectDropdownValue(int option) {
         getDriver().findElements(AppiumBy.id("android:id/text1")).get(option).click();
     }
 
@@ -67,12 +58,20 @@ public class FormPage {
         activeBtn().click();
     }
 
+    public String checkInActiveBtn() {
+        return inActiveBtn().getAttribute("long-clickable");
+    }
+
     public void closeMessage() {
         okBtn().click();
     }
 
-    public String checkInActiveBtn() {
-        return inActiveBtn().getAttribute("long-clickable");
+    public String getInputText() {
+        return getDriver().findElement(AppiumBy.accessibilityId("input-text-result")).getText();
+    }
+
+    private WebElement inputField() {
+        return getDriver().findElement(AppiumBy.accessibilityId("text-input"));
     }
 
 

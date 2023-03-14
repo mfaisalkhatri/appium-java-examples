@@ -1,8 +1,8 @@
 package io.github.mfaisalkhatri.pages.wdio;
 
-import static io.github.mfaisalkhatri.drivers.DriverManager.getDriver;
-
 import io.appium.java_client.AppiumBy;
+
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 /**
  * @author Faisal Khatri
@@ -10,20 +10,20 @@ import io.appium.java_client.AppiumBy;
  **/
 public class HomePage {
 
-    public String getTitle () {
-        return getDriver ().findElement (AppiumBy.androidUIAutomator ("new UiSelector().text(\"WEBDRIVER\")"))
-            .getText ();
+    public String getTitle() {
+        return getDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"WEBDRIVER\")"))
+                .getText();
     }
 
     public void openMenu(String menuName) {
-        getDriver ().findElement (AppiumBy.accessibilityId (menuName)).click ();
+        getDriver().findElement(AppiumBy.accessibilityId(menuName)).click();
 
     }
 
-    public String tagLine () {
-        return getDriver ().findElement (
-                        AppiumBy.androidUIAutomator ("new UiSelector().text(\"Demo app for the appium-boilerplate\")"))
-                .getText ();
+    public String tagLine() {
+        return getDriver().findElement(
+                        AppiumBy.androidUIAutomator("new UiSelector().text(\"Demo app for the appium-boilerplate\")"))
+                .getText();
     }
 
 }

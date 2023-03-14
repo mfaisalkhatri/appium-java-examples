@@ -1,14 +1,13 @@
 package io.github.mfaisalkhatri;
 
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-
 import io.github.mfaisalkhatri.pages.wdio.FormPage;
 import io.github.mfaisalkhatri.pages.wdio.HomePage;
 import io.github.mfaisalkhatri.pages.wdio.SignUpPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author Faisal Khatri
@@ -17,6 +16,7 @@ import org.testng.annotations.Test;
 public class AppiumTest extends BaseTest {
 
     private HomePage homePage;
+
     @BeforeClass
     public void setup() {
         homePage = new HomePage();
@@ -44,7 +44,7 @@ public class AppiumTest extends BaseTest {
     public void testForm() {
         homePage.openMenu("Forms");
 
-        String inputText = "This is Appium Test";
+        final String inputText = "This is Appium Test";
         FormPage formPage = new FormPage();
         formPage.fillForm(inputText, 2);
         assertEquals(formPage.getInputText(), inputText);
