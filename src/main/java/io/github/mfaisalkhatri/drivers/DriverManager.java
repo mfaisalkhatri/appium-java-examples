@@ -9,6 +9,7 @@ import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_PL
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 import io.appium.java_client.AppiumDriver;
@@ -32,8 +33,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  **/
 public class DriverManager {
 
-    private static final String APP_PATH = System.getProperty("user.dir") + "//src//test//resources//app//webdriverio-app.apk";
-
+    private static final String APP_PATH = String.valueOf(Paths.get(System.getProperty("user.dir"), "src", "test", "resources", "app", "webdriverio-app.apk"));
     private static final ThreadLocal<AppiumDriver> DRIVER = new ThreadLocal<>();
     private static final Logger LOG = LogManager.getLogger("DriverManager.class");
     private static AppiumDriverLocalService service;
@@ -50,7 +50,7 @@ public class DriverManager {
             LOG.info("Closing the driver...");
             getDriver().quit();
             DRIVER.remove();
-            //   stopServer ();
+            stopServer ();
         }
     }
 
