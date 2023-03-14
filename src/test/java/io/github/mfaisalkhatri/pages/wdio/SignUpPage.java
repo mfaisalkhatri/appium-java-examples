@@ -39,6 +39,9 @@ public class SignUpPage {
         return getDriver ().findElement (AppiumBy.id ("android:id/message")).getText ();
     }
 
+    public void openSignUpForm() {
+        signUpLink().click();
+    }
     public void signUp(String email, String password) {
         HomePage homePage = new HomePage ();
         homePage.openMenu ("Login");

@@ -19,4 +19,11 @@ public class HomePage {
         getDriver ().findElement (AppiumBy.accessibilityId (menuName)).click ();
 
     }
+
+    public String tagLine () {
+        return getDriver ().findElement (
+                        AppiumBy.androidUIAutomator ("new UiSelector().text(\"Demo app for the appium-boilerplate\")"))
+                .getText ();
+    }
+
 }
