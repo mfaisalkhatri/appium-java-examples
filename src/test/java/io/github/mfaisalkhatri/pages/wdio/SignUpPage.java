@@ -39,6 +39,10 @@ public class SignUpPage {
         return getDriver ().findElement (AppiumBy.id ("android:id/message")).getText ();
     }
 
+    private WebElement okBtn() {
+        return getDriver().findElement(AppiumBy.id("android:id/button1"));
+    }
+
     public void openSignUpForm() {
         signUpLink().click();
     }
@@ -50,5 +54,9 @@ public class SignUpPage {
         passwordField ().sendKeys (password);
         confirmPasswordField ().sendKeys (password);
         signUpBtn ().click ();
+    }
+
+    public void closeSuccessMessage() {
+        okBtn().click();
     }
 }
