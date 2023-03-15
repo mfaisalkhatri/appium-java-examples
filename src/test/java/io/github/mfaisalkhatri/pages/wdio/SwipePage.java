@@ -1,0 +1,58 @@
+package io.github.mfaisalkhatri.pages.wdio;
+
+import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+
+import java.time.Duration;
+import java.util.List;
+
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
+
+public class SwipePage {
+
+
+    public void performHorizontalSwipe() {
+        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
+
+        Point source = sourceElement.getLocation();
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+        swipe.addAction(
+                finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), source.x, source.y));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(
+                finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), source.x - (source.x * 5), source.y));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(new Pause(finger, Duration.ofMillis(600)));
+        getDriver()
+                .perform(List.of(swipe));
+
+    }
+
+    public void performVerticalSwipe() {
+        var screenSize = getDriver()
+                .manage()
+                .window()
+                .getSize();
+        var xCenter = screenSize.width / 2;
+        var yCenter = screenSize.height / 2;
+        var center = new Point(xCenter, yCenter);
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+        swipe.addAction(
+                finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), center.x, center.y));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(
+                finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), center.x, center.y - (center.y * 80 / 100)));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(new Pause(finger, Duration.ofMillis(1000)));
+        getDriver()
+                .perform(List.of(swipe));
+
+    }
+}
