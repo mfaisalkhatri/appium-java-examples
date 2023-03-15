@@ -48,7 +48,15 @@ public class AndroidDriverManager {
     private static UiAutomator2Options uiAutomator2Options() {
 
         UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_2_API_33").setAvdLaunchTimeout(Duration.ofSeconds(300)).setAvdReadyTimeout(Duration.ofSeconds(100)).setDeviceName("Pixel_2_API_33").setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2).setApp(APP_PATH).setAppPackage("com.wdiodemoapp").setAppActivity("com.wdiodemoapp.MainActivity").setNoReset(false);
+        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_2_API_33")
+                .setAvdLaunchTimeout(Duration.ofSeconds(300))
+                .setAvdReadyTimeout(Duration.ofSeconds(100))
+                .setDeviceName("Pixel_2_API_33")
+                .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
+                .setApp(APP_PATH)
+                .setAppPackage("com.wdiodemoapp")
+                .setAppActivity("com.wdiodemoapp.MainActivity")
+                .setNoReset(false);
         return uiAutomator2Options;
     }
 
@@ -68,7 +76,11 @@ public class AndroidDriverManager {
         AppiumServiceBuilder builder = new AppiumServiceBuilder();
         builder.withIPAddress("127.0.0.1").usingPort(4723)
                 //.usingDriverExecutable (new File ("E:\\Program Files\\nodejs\\node.exe"))
-                .withArgument(BASEPATH, "/wd/hub").withArgument(SESSION_OVERRIDE).withArgument(LOG_LEVEL, "debug").withArgument(USE_DRIVERS, "uiautomator2").withArgument(USE_PLUGINS, "element-wait");
+                .withArgument(BASEPATH, "/wd/hub")
+                .withArgument(SESSION_OVERRIDE)
+                .withArgument(LOG_LEVEL, "debug")
+                .withArgument(USE_DRIVERS, "uiautomator2")
+                .withArgument(USE_PLUGINS, "element-wait");
 
         service = AppiumDriverLocalService.buildService(builder);
         service.start();

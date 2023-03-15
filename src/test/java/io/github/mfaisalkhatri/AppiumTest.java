@@ -4,6 +4,7 @@ package io.github.mfaisalkhatri;
 import io.github.mfaisalkhatri.pages.wdio.FormPage;
 import io.github.mfaisalkhatri.pages.wdio.HomePage;
 import io.github.mfaisalkhatri.pages.wdio.SignUpPage;
+import io.github.mfaisalkhatri.pages.wdio.SwipePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -58,6 +59,16 @@ public class AppiumTest extends BaseTest {
 
         assertEquals(formPage.checkInActiveBtn(), "false");
 
+
     }
 
+    @Test
+    public void testSwipeOnElement() {
+        homePage.openMenu("Swipe");
+
+        SwipePage swipePage = new SwipePage();
+        swipePage.performHorizontalSwipe();
+        swipePage.performVerticalSwipe();
+
+    }
 }
