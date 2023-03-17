@@ -41,17 +41,13 @@ public class AndroidDriverManager {
         AndroidDriverManager.DRIVER.set(driver);
     }
 
-    private static void setupDriverTimeouts() {
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    }
-
     private static UiAutomator2Options uiAutomator2Options() {
 
         UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_2_API_33")
+        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_XL_API_33")
                 .setAvdLaunchTimeout(Duration.ofSeconds(300))
                 .setAvdReadyTimeout(Duration.ofSeconds(100))
-                .setDeviceName("Pixel_2_API_33")
+                .setDeviceName("Pixel_XL_API_33")
                 .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
                 .setApp(APP_PATH)
                 .setAppPackage("com.wdiodemoapp")
@@ -78,7 +74,7 @@ public class AndroidDriverManager {
                 //.usingDriverExecutable (new File ("E:\\Program Files\\nodejs\\node.exe"))
                 .withArgument(BASEPATH, "/wd/hub")
                 .withArgument(SESSION_OVERRIDE)
-                .withArgument(LOG_LEVEL, "debug")
+                .withArgument(LOG_LEVEL, "info")
                 .withArgument(USE_DRIVERS, "uiautomator2")
                 .withArgument(USE_PLUGINS, "element-wait");
 
@@ -91,6 +87,10 @@ public class AndroidDriverManager {
         setDriver(new AndroidDriver(service.getUrl(), uiAutomator2Options()));
         //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
         setupDriverTimeouts();
+    }
+
+    private static void setupDriverTimeouts() {
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     private static void stopServer() {

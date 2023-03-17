@@ -2,10 +2,13 @@ package io.github.mfaisalkhatri.pages.wdio;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -14,8 +17,15 @@ import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 public class SwipePage {
 
+    private final HomePage homePage;
+
+    public SwipePage() {
+        homePage = new HomePage();
+        homePage.openMenu("Swipe");
+    }
 
     public void performHorizontalSwipe() {
+
         WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
 
         Point source = sourceElement.getLocation();
@@ -54,5 +64,28 @@ public class SwipePage {
         getDriver()
                 .perform(List.of(swipe));
 
+    }
+
+    public String swipeAndFindElement() {
+        WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()" +
+                ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
+        return targetElement.getText();
+    }
+
+    public String swipeTillElement() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(1));
+
+        WebElement targetElement = null;
+        boolean found = false;
+        while (!found) {
+            try {
+                targetElement = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.
+                        androidUIAutomator("new UiSelector().text(\"You found me!!!\")")));
+                found = true;
+            } catch (TimeoutException e) {
+                performVerticalSwipe();
+            }
+        }
+        return targetElement.getText();
     }
 }

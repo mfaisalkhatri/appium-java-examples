@@ -48,6 +48,8 @@ public class FormPage {
     }
 
     public void fillForm(String input, int option) {
+        HomePage homePage = new HomePage();
+        homePage.openMenu("Forms");
         inputField().sendKeys(input);
         switchBtn().click();
         dropdownField().click();

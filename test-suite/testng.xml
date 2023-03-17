@@ -9,6 +9,8 @@
                     <include name="testSignUp"/>
                     <include name="testForm"/>
                     <include name="testSwipeOnElement"/>
+                    <include name="testSwipeTillElement"/>
+                    <include name="testSwipeUsingScrollIntoView"/>
                 </methods>
             </class>
         </classes>
