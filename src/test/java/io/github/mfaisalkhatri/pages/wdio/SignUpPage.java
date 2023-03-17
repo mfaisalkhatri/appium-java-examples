@@ -11,6 +11,7 @@ import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
  **/
 public class SignUpPage {
 
+
     private WebElement signUpLink() {
         return getDriver().findElement(AppiumBy.accessibilityId("button-sign-up-container"));
     }
@@ -43,14 +44,14 @@ public class SignUpPage {
         return getDriver().findElement(AppiumBy.id("android:id/button1"));
     }
 
-    public void openSignUpForm() {
+    private void openSignUpForm() {
         signUpLink().click();
     }
 
     public void signUp(String email, String password) {
         HomePage homePage = new HomePage();
         homePage.openMenu("Login");
-        signUpLink().click();
+        openSignUpForm();
         emailField().sendKeys(email);
         passwordField().sendKeys(password);
         confirmPasswordField().sendKeys(password);

@@ -5,7 +5,6 @@ import io.github.mfaisalkhatri.pages.wdio.FormPage;
 import io.github.mfaisalkhatri.pages.wdio.HomePage;
 import io.github.mfaisalkhatri.pages.wdio.SignUpPage;
 import io.github.mfaisalkhatri.pages.wdio.SwipePage;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -16,25 +15,16 @@ import static org.testng.Assert.assertEquals;
  **/
 public class AppiumTest extends BaseTest {
 
-    private HomePage homePage;
-
-    @BeforeClass
-    public void setup() {
-        homePage = new HomePage();
-    }
-
     @Test
     public void testHomePageTitle() {
+        HomePage homePage = new HomePage();
         assertEquals(homePage.getTitle(), "WEBDRIVER");
         assertEquals(homePage.tagLine(), "Demo app for the appium-boilerplate");
     }
 
     @Test
     public void testSignUp() {
-        homePage.openMenu("Login");
-
         SignUpPage signUpPage = new SignUpPage();
-        signUpPage.openSignUpForm();
         signUpPage.signUp("test@email.com", "Pass@12345");
         assertEquals(signUpPage.getSuccessMessageTitle(), "Signed Up!");
         assertEquals(signUpPage.getSuccessMessage(), "You successfully signed up!");
@@ -43,8 +33,6 @@ public class AppiumTest extends BaseTest {
 
     @Test
     public void testForm() {
-        homePage.openMenu("Forms");
-
         final String inputText = "This is Appium Test";
         FormPage formPage = new FormPage();
         formPage.fillForm(inputText, 2);
@@ -64,11 +52,23 @@ public class AppiumTest extends BaseTest {
 
     @Test
     public void testSwipeOnElement() {
-        homePage.openMenu("Swipe");
-
         SwipePage swipePage = new SwipePage();
         swipePage.performHorizontalSwipe();
         swipePage.performVerticalSwipe();
 
+
+    }
+
+    @Test
+    public void testSwipeTillElement() {
+
+        SwipePage swipePage = new SwipePage();
+        assertEquals(swipePage.swipeTillElement(), "You found me!!!");
+    }
+
+    @Test
+    public void testSwipeUsingScrollIntoView() {
+        SwipePage swipePage = new SwipePage();
+        assertEquals(swipePage.swipeAndFindElement(), "You found me!!!");
     }
 }
