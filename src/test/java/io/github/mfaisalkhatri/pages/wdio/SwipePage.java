@@ -67,7 +67,8 @@ public class SwipePage {
     }
 
     public String swipeAndFindElement() {
-        WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()" +
+        WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
+            ("new UiScrollable(new UiSelector()" +
                 ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
         return targetElement.getText();
     }

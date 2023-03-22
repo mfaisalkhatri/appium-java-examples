@@ -10,6 +10,7 @@
                     <include name="testForm"/>
                     <include name="testSwipeOnElement"/>
                     <include name="testSwipeTillElement"/>
+                    <include name="testWebView"/>
                     <include name="testSwipeUsingScrollIntoView"/>
                 </methods>
             </class>
