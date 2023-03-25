@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Sample tests">
-    <test name="WebDriverIO Android Tests">
+    <test name="WebDriverIO Android Tests" enabled="false">
         <classes>
             <class name="io.github.mfaisalkhatri.AppiumTest">
                 <methods>
@@ -12,6 +12,15 @@
                     <include name="testSwipeTillElement"/>
                     <include name="testWebView"/>
                     <include name="testSwipeUsingScrollIntoView"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Proverbial app Android Tests">
+        <classes>
+            <class name="io.github.mfaisalkhatri.AppiumTest">
+                <methods>
+                    <include name="testNotification"/>
                 </methods>
             </class>
         </classes>
