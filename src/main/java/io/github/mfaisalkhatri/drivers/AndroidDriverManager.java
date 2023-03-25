@@ -1,5 +1,15 @@
 package io.github.mfaisalkhatri.drivers;
 
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.ALLOW_INSECURE;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.BASEPATH;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.LOG_LEVEL;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.SESSION_OVERRIDE;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_DRIVERS;
+
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.time.Duration;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
@@ -8,51 +18,46 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.time.Duration;
-
-import static io.appium.java_client.service.local.flags.GeneralServerFlag.*;
-
 /**
  * @author Faisal Khatri
  * @since 10/13/2022
  **/
 public class AndroidDriverManager {
-    private static final String APP_PATH = String.valueOf(Path.of(System.getProperty("user.dir"), "/src/test/resources/app", "webdriverio-app.apk"));
-    private static final ThreadLocal<AndroidDriver> DRIVER = new ThreadLocal<>();
-    private static final Logger LOG = LogManager.getLogger("DriverManager.class");
-    private static AppiumDriverLocalService service;
+    private static final String                     APP_PATH = String.valueOf (
+        Path.of (System.getProperty ("user.dir"), "/src/test/resources/app", "webdriverio-app.apk"));
+    private static final ThreadLocal<AndroidDriver> DRIVER   = new ThreadLocal<> ();
+    private static final Logger                     LOG      = LogManager.getLogger ("DriverManager.class");
+    private static       AppiumDriverLocalService   service;
 
-    public static void quitSession() {
-        if (null != DRIVER.get()) {
-            LOG.info("Closing the driver...");
-            getDriver().quit();
-            DRIVER.remove();
-            stopServer();
+    public static void quitSession () {
+        if (null != DRIVER.get ()) {
+            LOG.info ("Closing the driver...");
+            getDriver ().quit ();
+            DRIVER.remove ();
+            stopServer ();
         }
     }
 
-    public static AndroidDriver getDriver() {
-        return AndroidDriverManager.DRIVER.get();
+    public static AndroidDriver getDriver () {
+        return AndroidDriverManager.DRIVER.get ();
     }
 
-    private static void setDriver(AndroidDriver driver) {
-        AndroidDriverManager.DRIVER.set(driver);
+    private static void setDriver (AndroidDriver driver) {
+        AndroidDriverManager.DRIVER.set (driver);
     }
 
     private static UiAutomator2Options uiAutomator2OptionsWdio() {
-
         UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_XL_API_33")
-                .setAvdLaunchTimeout(Duration.ofSeconds(300))
-                .setAvdReadyTimeout(Duration.ofSeconds(100))
-                .setDeviceName("Pixel_XL_API_33")
-                .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
-                .setApp(APP_PATH)
-                .setAppPackage("com.wdiodemoapp")
-                .setAppActivity("com.wdiodemoapp.MainActivity")
-                .setNoReset(false);
+        uiAutomator2Options = new UiAutomator2Options ()
+            //        .setAvd("Pixel_XL_API_33")
+            //                .setAvdLaunchTimeout(Duration.ofSeconds(300))
+            //                .setAvdReadyTimeout(Duration.ofSeconds(100))
+            .setDeviceName ("Pixel_6_PRO_API_33")
+            .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
+            .setApp (APP_PATH)
+            .setAppPackage ("com.wdiodemoapp")
+            .setAppActivity ("com.wdiodemoapp.MainActivity")
+            .setNoReset (false);
         return uiAutomator2Options;
     }
 
@@ -101,17 +106,18 @@ public class AndroidDriverManager {
 
     public static void createAndroidDriver() throws MalformedURLException {
         startServer();
-        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsProverbial()));
-        //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
-        setupDriverTimeouts();
+        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsProverbial()));        //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
+        setupDriverTimeouts ();
     }
 
-    private static void setupDriverTimeouts() {
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    private static void setupDriverTimeouts () {
+        getDriver ().manage ()
+            .timeouts ()
+            .implicitlyWait (Duration.ofSeconds (5));
     }
 
-    private static void stopServer() {
-        service.stop();
+    private static void stopServer () {
+        service.stop ();
     }
 
 }
