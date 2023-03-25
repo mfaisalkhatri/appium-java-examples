@@ -41,7 +41,7 @@ public class AndroidDriverManager {
         AndroidDriverManager.DRIVER.set(driver);
     }
 
-    private static UiAutomator2Options uiAutomator2Options() {
+    private static UiAutomator2Options uiAutomator2OptionsWdio() {
 
         UiAutomator2Options uiAutomator2Options;
         uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_XL_API_33")
@@ -55,6 +55,23 @@ public class AndroidDriverManager {
                 .setNoReset(false);
         return uiAutomator2Options;
     }
+
+    private static UiAutomator2Options uiAutomator2OptionsProverbial() {
+
+        UiAutomator2Options uiAutomator2Options;
+        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_XL_API_33")
+                .setAvdLaunchTimeout(Duration.ofSeconds(300))
+                .setAvdReadyTimeout(Duration.ofSeconds(100))
+                .setDeviceName("Pixel_XL_API_33")
+                .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
+                .setApp(APP_PATH)
+                .setAutoGrantPermissions(true)
+                .setAppPackage("com.lambdatest.proverbial")
+                .setAppActivity("com.lambdatest.proverbial.MainActivity")
+                .setNoReset(false);
+        return uiAutomator2Options;
+    }
+
 
 //    private static DesiredCapabilities setCapabilities() {
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -75,8 +92,8 @@ public class AndroidDriverManager {
                 .withArgument(BASEPATH, "/wd/hub")
                 .withArgument(SESSION_OVERRIDE)
                 .withArgument(LOG_LEVEL, "info")
-                .withArgument(USE_DRIVERS, "uiautomator2")
-                .withArgument(USE_PLUGINS, "element-wait");
+                .withArgument(USE_DRIVERS, "uiautomator2");
+        // .withArgument(USE_PLUGINS, "element-wait");
 
         service = AppiumDriverLocalService.buildService(builder);
         service.start();
@@ -84,7 +101,7 @@ public class AndroidDriverManager {
 
     public static void createAndroidDriver() throws MalformedURLException {
         startServer();
-        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2Options()));
+        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsProverbial()));
         //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
         setupDriverTimeouts();
     }

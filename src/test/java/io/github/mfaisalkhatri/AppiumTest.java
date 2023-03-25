@@ -1,6 +1,7 @@
 package io.github.mfaisalkhatri;
 
 
+import io.github.mfaisalkhatri.pages.proverbial.Notifications;
 import io.github.mfaisalkhatri.pages.wdio.FormPage;
 import io.github.mfaisalkhatri.pages.wdio.HomePage;
 import io.github.mfaisalkhatri.pages.wdio.SignUpPage;
@@ -8,6 +9,7 @@ import io.github.mfaisalkhatri.pages.wdio.SwipePage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
  * @author Faisal Khatri
@@ -70,5 +72,16 @@ public class AppiumTest extends BaseTest {
     public void testSwipeUsingScrollIntoView() {
         SwipePage swipePage = new SwipePage();
         assertEquals(swipePage.swipeAndFindElement(), "You found me!!!");
+    }
+
+    @Test
+    public void testNotification() throws InterruptedException {
+        Notifications notifications = new Notifications();
+        assertTrue(notifications.checkNotificationIsDisplayed());
+        notifications.openNotificationPanel();
+
+        assertEquals(notifications.getAppNotificationTitle(), "Proverbial");
+        assertEquals(notifications.getNotificationTitle(), "Test Notification");
+        assertEquals(notifications.getNotificationText(), "Please enjoy this notification");
     }
 }
