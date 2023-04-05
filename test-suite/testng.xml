@@ -16,7 +16,7 @@
             </class>
         </classes>
     </test>
-    <test name="Proverbial app Android Tests">
+    <test name="Proverbial app Android Tests" enabled="false">
         <classes>
             <class name="io.github.mfaisalkhatri.AppiumTest">
                 <methods>
@@ -25,4 +25,14 @@
             </class>
         </classes>
     </test>
+    <test name="Android Tests on chrome">
+        <classes>
+            <class name="io.github.mfaisalkhatri.AppiumTest">
+                <methods>
+                    <include name="testChrome"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite> <!-- Suite -->

@@ -1,5 +1,6 @@
 package io.github.mfaisalkhatri;
 
+import io.github.mfaisalkhatri.pages.browser.TheInternetPage;
 import io.github.mfaisalkhatri.pages.proverbial.Notifications;
 import io.github.mfaisalkhatri.pages.wdio.*;
 import org.testng.annotations.Test;
@@ -85,5 +86,14 @@ public class AppiumTest extends BaseTest {
         assertEquals(notifications.getAppNotificationTitle(), "Proverbial");
         assertEquals(notifications.getNotificationTitle(), "Test Notification");
         assertEquals(notifications.getNotificationText(), "Please enjoy this notification");
+    }
+
+    @Test
+    public void testChrome() {
+
+        TheInternetPage theInternetPage = new TheInternetPage();
+        theInternetPage.navigateToInternetWebsite();
+        assertEquals(theInternetPage.getPageHeader(), "Welcome to the-internet");
+
     }
 }

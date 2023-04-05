@@ -8,7 +8,6 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.time.Duration;
 
@@ -73,6 +72,21 @@ public class AndroidDriverManager {
         return uiAutomator2Options;
     }
 
+    private static UiAutomator2Options uiAutomator2OptionsChrome() {
+
+        UiAutomator2Options uiAutomator2Options;
+        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_6_API_31")
+                .setAvdLaunchTimeout(Duration.ofSeconds(300))
+                .setAvdReadyTimeout(Duration.ofSeconds(100))
+                .setDeviceName("Pixel_6_API_31")
+                .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
+                .withBrowserName("chrome")
+                .setAutoGrantPermissions(true)
+                .setNoReset(false);
+
+        return uiAutomator2Options;
+    }
+
 
 //    private static DesiredCapabilities setCapabilities() {
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -93,16 +107,17 @@ public class AndroidDriverManager {
                 .withArgument(BASEPATH, "/wd/hub")
                 .withArgument(SESSION_OVERRIDE)
                 .withArgument(LOG_LEVEL, "info")
-                .withArgument(USE_DRIVERS, "uiautomator2");
+                .withArgument(USE_DRIVERS, "uiautomator2")
+                .withArgument(ALLOW_INSECURE, "chromedriver_autodownload");
         // .withArgument(USE_PLUGINS, "element-wait");
 
         service = AppiumDriverLocalService.buildService(builder);
         service.start();
     }
 
-    public static void createAndroidDriver() throws MalformedURLException {
+    public static void createAndroidDriver() {
         startServer();
-        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsProverbial()));        //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
+        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsChrome()));        //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
         setupDriverTimeouts();
     }
 
