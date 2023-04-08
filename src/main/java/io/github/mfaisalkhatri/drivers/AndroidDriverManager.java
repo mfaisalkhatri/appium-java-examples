@@ -7,7 +7,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.nio.file.Path;
 import java.time.Duration;
 
@@ -44,10 +43,10 @@ public class AndroidDriverManager {
     private static UiAutomator2Options uiAutomator2OptionsWdio() {
         UiAutomator2Options uiAutomator2Options;
         uiAutomator2Options = new UiAutomator2Options()
-                //        .setAvd("Pixel_XL_API_33")
-                //                .setAvdLaunchTimeout(Duration.ofSeconds(300))
-                //                .setAvdReadyTimeout(Duration.ofSeconds(100))
-                .setDeviceName("Pixel_6_PRO_API_33")
+                .setAvd("Pixel_XL_API_33")
+                .setAvdLaunchTimeout(Duration.ofSeconds(300))
+                .setAvdReadyTimeout(Duration.ofSeconds(100))
+                .setDeviceName("Pixel_XL_API_33")
                 .setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2)
                 .setApp(APP_PATH)
                 .setAppPackage("com.wdiodemoapp")
@@ -117,7 +116,12 @@ public class AndroidDriverManager {
 
     public static void createAndroidDriver() {
         startServer();
-        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsChrome()));        //setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2Options()));
+        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsWdio()));
+//        try {
+//            setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2OptionsWdio()));
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
         setupDriverTimeouts();
     }
 
