@@ -12,6 +12,7 @@
                     <include name="testWebView"/>
                     <include name="testSwipeTillElement"/>
                     <include name="testSwipeUsingScrollIntoView"/>
+                    <include name="testDragAndDrop"/>
                 </methods>
             </class>
         </classes>

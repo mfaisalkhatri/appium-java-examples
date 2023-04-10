@@ -1,10 +1,10 @@
 package io.github.mfaisalkhatri.pages.wdio;
 
-import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
+import org.openqa.selenium.By;
 
 import java.util.Set;
 
-import org.openqa.selenium.By;
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 /**
  * @author Faisal Khatri
@@ -14,19 +14,20 @@ public class WebViewPage {
 
 
     public void switchToWebView() {
-        Set<String> contextNames = getDriver ().getContextHandles();
-        getDriver ().context("WEBVIEW_com.wdiodemoapp");
+        Set<String> contextNames = getDriver().getContextHandles();
+        getDriver().context(contextNames.toArray()[1].toString());
+        //getDriver().context("WEBVIEW_com.wdiodemoapp");
     }
 
     public void switchToNativeApp() {
-        getDriver ().context("NATIVE_APP");
+        getDriver().context("NATIVE_APP");
     }
 
-    public String getMainPageText () {
-        HomePage homePage = new HomePage ();
-        homePage.openMenu ("Webview");
-        switchToWebView ();
-        return getDriver ().findElement (By.cssSelector ("header > div > p"))
-            .getText ();
+    public String getMainPageText() {
+        HomePage homePage = new HomePage();
+        homePage.openMenu("Webview");
+        switchToWebView();
+        return getDriver().findElement(By.cssSelector("header > div > p"))
+                .getText();
     }
 }
