@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.wdio;
+package io.github.mfaisalkhatri.android.pages.wdio;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
@@ -68,8 +68,8 @@ public class SwipePage {
 
     public String swipeAndFindElement() {
         WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
-            ("new UiScrollable(new UiSelector()" +
-                ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
+                ("new UiScrollable(new UiSelector()" +
+                        ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
         return targetElement.getText();
     }
 

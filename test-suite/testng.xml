@@ -3,7 +3,7 @@
 <suite name="Appium Sample tests">
     <test name="WebDriverIO Android Tests" enabled="true">
         <classes>
-            <class name="io.github.mfaisalkhatri.AppiumTest">
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
                     <include name="testHomePageTitle"/>
                     <include name="testSignUp"/>
@@ -19,7 +19,7 @@
     </test>
     <test name="Proverbial app Android Tests" enabled="false">
         <classes>
-            <class name="io.github.mfaisalkhatri.AppiumTest">
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
                     <include name="testNotification"/>
                 </methods>
@@ -28,7 +28,7 @@
     </test>
     <test name="Android Tests on chrome" enabled="false">
         <classes>
-            <class name="io.github.mfaisalkhatri.AppiumTest">
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
                     <include name="testChrome"/>
                 </methods>

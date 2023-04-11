@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.wdio;
+package io.github.mfaisalkhatri.android.pages.wdio;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
