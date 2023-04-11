@@ -99,7 +99,7 @@ public class AndroidDriverManager {
 
 
     public static void createAndroidDriver() {
-        startServer();
+        startServer("android");
         setDriver(new AndroidDriver(getService().getUrl(), uiAutomator2OptionsWdio()));
 //        try {
 //            setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2OptionsWdio()));
