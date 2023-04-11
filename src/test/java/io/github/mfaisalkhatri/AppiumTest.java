@@ -90,10 +90,15 @@ public class AppiumTest extends BaseTest {
 
     @Test
     public void testChrome() {
-
         TheInternetPage theInternetPage = new TheInternetPage();
         theInternetPage.navigateToInternetWebsite();
         assertEquals(theInternetPage.getPageHeader(), "Welcome to the-internet");
+    }
 
+    @Test
+    public void testDragAndDrop() {
+        DragPage dragPage = new DragPage();
+        dragPage.dragAndDropPrices();
+        assertEquals(dragPage.congratulationsText(), "Congratulations");
     }
 }
