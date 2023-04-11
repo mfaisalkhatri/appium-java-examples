@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Sample tests for IOS">
+    <test name="WebDriverIO App IOS Tests" enabled="true">
+        <classes>
+            <class name="io.github.mfaisalkhatri.ios.tests.IOSTests">
+                <methods>
+                    <include name="testHomePageTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Sample tests for Android">
+    <test name="WebDriverIO Android App Tests" enabled="true">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
+                <methods>
+                    <include name="testHomePageTitle"/>
+                    <include name="testSignUp"/>
+                    <include name="testForm"/>
+                    <include name="testSwipeOnElement"/>
+                    <include name="testWebView"/>
+                    <include name="testSwipeTillElement"/>
+                    <include name="testSwipeUsingScrollIntoView"/>
+                    <include name="testDragAndDrop"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Proverbial app Android Tests" enabled="false">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
+                <methods>
+                    <include name="testNotification"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Android Tests on chrome" enabled="false">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
+                <methods>
+                    <include name="testChrome"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
