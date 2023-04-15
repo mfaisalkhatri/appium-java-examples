@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.android.pages.wdio;
+package io.github.mfaisalkhatri.ios.pages;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
+import static io.github.mfaisalkhatri.drivers.IOSDriverManager.getDriver;
 
 public class SwipePage {
 
@@ -25,7 +25,7 @@ public class SwipePage {
 
     public void performHorizontalSwipe() {
 
-        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
+        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//XCUIElementTypeOther[@name=\"card\"])[1]"));
 
         Point source = sourceElement.getLocation();
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
