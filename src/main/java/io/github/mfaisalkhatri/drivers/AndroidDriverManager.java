@@ -3,14 +3,13 @@ package io.github.mfaisalkhatri.drivers;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.nio.file.Path;
 import java.time.Duration;
 
-import static io.appium.java_client.service.local.flags.GeneralServerFlag.*;
+import static io.github.mfaisalkhatri.server.AppiumServerManager.*;
 
 /**
  * @author Faisal Khatri
@@ -21,7 +20,6 @@ public class AndroidDriverManager {
             Path.of(System.getProperty("user.dir"), "/src/test/resources/app", "webdriverio-app.apk"));
     private static final ThreadLocal<AndroidDriver> DRIVER = new ThreadLocal<>();
     private static final Logger LOG = LogManager.getLogger("DriverManager.class");
-    private static AppiumDriverLocalService service;
 
     public static void quitSession() {
         if (null != DRIVER.get()) {
@@ -99,24 +97,10 @@ public class AndroidDriverManager {
 //        return capabilities;
 //    }
 
-    private static void startServer() {
-        AppiumServiceBuilder builder = new AppiumServiceBuilder();
-        builder.withIPAddress("127.0.0.1").usingPort(4723)
-                //.usingDriverExecutable (new File ("E:\\Program Files\\nodejs\\node.exe"))
-                .withArgument(BASEPATH, "/wd/hub")
-                .withArgument(SESSION_OVERRIDE)
-                .withArgument(LOG_LEVEL, "info")
-                .withArgument(USE_DRIVERS, "uiautomator2")
-                .withArgument(ALLOW_INSECURE, "chromedriver_autodownload");
-        // .withArgument(USE_PLUGINS, "element-wait");
-
-        service = AppiumDriverLocalService.buildService(builder);
-        service.start();
-    }
 
     public static void createAndroidDriver() {
-        startServer();
-        setDriver(new AndroidDriver(service.getUrl(), uiAutomator2OptionsWdio()));
+        startServer("android");
+        setDriver(new AndroidDriver(getService().getUrl(), uiAutomator2OptionsWdio()));
 //        try {
 //            setDriver(new AndroidDriver(new URL("http://localhost:4723/wd/hub"), uiAutomator2OptionsWdio()));
 //        } catch (MalformedURLException e) {
@@ -131,8 +115,5 @@ public class AndroidDriverManager {
                 .implicitlyWait(Duration.ofSeconds(5));
     }
 
-    private static void stopServer() {
-        service.stop();
-    }
 
 }

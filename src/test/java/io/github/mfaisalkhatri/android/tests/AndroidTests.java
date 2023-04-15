@@ -1,8 +1,8 @@
-package io.github.mfaisalkhatri;
+package io.github.mfaisalkhatri.android.tests;
 
-import io.github.mfaisalkhatri.pages.browser.TheInternetPage;
-import io.github.mfaisalkhatri.pages.proverbial.Notifications;
-import io.github.mfaisalkhatri.pages.wdio.*;
+import io.github.mfaisalkhatri.android.pages.browser.TheInternetPage;
+import io.github.mfaisalkhatri.android.pages.proverbial.Notifications;
+import io.github.mfaisalkhatri.android.pages.wdio.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
  * @author Faisal Khatri
  * @since 10/13/2022
  **/
-public class AppiumTest extends BaseTest {
+public class AndroidTests extends BaseTest {
 
     @Test
     public void testHomePageTitle() {

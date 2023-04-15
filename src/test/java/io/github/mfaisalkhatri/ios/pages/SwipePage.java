@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.wdio;
+package io.github.mfaisalkhatri.ios.pages;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
@@ -13,20 +13,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
+import static io.github.mfaisalkhatri.drivers.IOSDriverManager.getDriver;
 
 public class SwipePage {
 
-    private final HomePage homePage;
 
     public SwipePage() {
-        homePage = new HomePage();
+        HomePage homePage = new HomePage();
         homePage.openMenu("Swipe");
     }
 
     public void performHorizontalSwipe() {
 
-        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
+        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//XCUIElementTypeOther[@name=\"card\"])[1]"));
 
         Point source = sourceElement.getLocation();
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -68,8 +67,8 @@ public class SwipePage {
 
     public String swipeAndFindElement() {
         WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
-            ("new UiScrollable(new UiSelector()" +
-                ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
+                ("new UiScrollable(new UiSelector()" +
+                        ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
         return targetElement.getText();
     }
 

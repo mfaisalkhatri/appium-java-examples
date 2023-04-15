@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.wdio;
+package io.github.mfaisalkhatri.android.pages.wdio;
 
 import org.openqa.selenium.By;
 

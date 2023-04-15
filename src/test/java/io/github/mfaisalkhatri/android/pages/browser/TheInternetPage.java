@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.browser;
+package io.github.mfaisalkhatri.android.pages.browser;
 
 import org.openqa.selenium.By;
 

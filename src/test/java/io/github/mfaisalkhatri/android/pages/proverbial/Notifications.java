@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.pages.proverbial;
+package io.github.mfaisalkhatri.android.pages.proverbial;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.WebElement;
