@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+
 public class IOSTests extends BaseTest {
 
     @Test
@@ -43,4 +44,18 @@ public class IOSTests extends BaseTest {
         swipePage.performVerticalSwipe();
 
     }
+
+    @Test
+    public void testSwipeTillElement() {
+        SwipePage swipePage = new SwipePage();
+        assertEquals(swipePage.swipeTillElement(), "You found me!!!");
+    }
+
+    @Test
+    public void testSwipeAndFindElement() {
+        SwipePage swipePage = new SwipePage();
+        assertEquals(swipePage.swipeAndFindElement(), "You found me!!!");
+
+    }
+
 }

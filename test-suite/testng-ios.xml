@@ -5,9 +5,11 @@
         <classes>
             <class name="io.github.mfaisalkhatri.ios.tests.IOSTests">
                 <methods>
-                    <include name="testHomePageTitle"/>
-                    <include name="testForm"/>
-                    <include name="testSwipeOnElement"/>
+                    <exclude name="testHomePageTitle"/>
+                    <exclude name="testForm"/>
+                    <exclude name="testSwipeOnElement"/>
+                    <exclude name="testSwipeTillElement"/>
+                    <include name="testSwipeAndFindElement"/>
                 </methods>
             </class>
         </classes>
