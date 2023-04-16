@@ -66,6 +66,7 @@ public class SwipePage {
     }
 
     public String swipeAndFindElement() {
+        
         WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
                 ("new UiScrollable(new UiSelector()" +
                         ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
@@ -80,7 +81,7 @@ public class SwipePage {
         while (!found) {
             try {
                 targetElement = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.
-                        androidUIAutomator("new UiSelector().text(\"You found me!!!\")")));
+                        iOSClassChain("**/XCUIElementTypeStaticText[`label == \"You found me!!!\"`]")));
                 found = true;
             } catch (TimeoutException e) {
                 performVerticalSwipe();

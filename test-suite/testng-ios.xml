@@ -8,6 +8,7 @@
                     <include name="testHomePageTitle"/>
                     <include name="testForm"/>
                     <include name="testSwipeOnElement"/>
+                    <include name="testSwipeTillElement"/>
                 </methods>
             </class>
         </classes>
