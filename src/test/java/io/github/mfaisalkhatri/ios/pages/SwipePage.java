@@ -1,17 +1,21 @@
 package io.github.mfaisalkhatri.ios.pages;
 
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static io.github.mfaisalkhatri.drivers.IOSDriverManager.getDriver;
 
@@ -66,11 +70,15 @@ public class SwipePage {
     }
 
     public String swipeAndFindElement() {
-        
-        WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
-                ("new UiScrollable(new UiSelector()" +
-                        ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
-        return targetElement.getText();
+        JavascriptExecutor js = getDriver();
+        Map<String, Object> params = new HashMap<>();
+        params.put("direction", "up");
+        WebElement element = getDriver().findElement(AppiumBy.
+                iOSClassChain("**/XCUIElementTypeStaticText[`label == \"You found me!!!\"`]"));
+        params.put("element", ((RemoteWebElement) element).getId());
+        js.executeScript("mobile: scrollToElement", params);
+
+        return element.getText();
     }
 
     public String swipeTillElement() {

@@ -47,9 +47,15 @@ public class IOSTests extends BaseTest {
 
     @Test
     public void testSwipeTillElement() {
-
         SwipePage swipePage = new SwipePage();
         assertEquals(swipePage.swipeTillElement(), "You found me!!!");
+    }
+
+    @Test
+    public void testSwipeAndFindElement() {
+        SwipePage swipePage = new SwipePage();
+        assertEquals(swipePage.swipeAndFindElement(), "You found me!!!");
+
     }
 
 }
