@@ -9,7 +9,8 @@
                     <exclude name="testForm"/>
                     <exclude name="testSwipeOnElement"/>
                     <exclude name="testSwipeTillElement"/>
-                    <include name="testSwipeAndFindElement"/>
+                    <include name="testWebView"/>
+                    <exclude name="testSwipeAndFindElement"/>
                 </methods>
             </class>
         </classes>
