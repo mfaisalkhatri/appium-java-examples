@@ -4,6 +4,7 @@ package io.github.mfaisalkhatri.ios.tests;
 import io.github.mfaisalkhatri.ios.pages.FormPage;
 import io.github.mfaisalkhatri.ios.pages.HomePage;
 import io.github.mfaisalkhatri.ios.pages.SwipePage;
+import io.github.mfaisalkhatri.ios.pages.WebViewPage;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -57,5 +58,14 @@ public class IOSTests extends BaseTest {
         assertEquals(swipePage.swipeAndFindElement(), "You found me!!!");
 
     }
+
+    @Test
+    public void testWebView() {
+        WebViewPage webViewPage = new WebViewPage();
+
+        assertEquals(webViewPage.getMainPageText(), "Next-gen browser and mobile automation test framework for Node.js");
+        webViewPage.switchToNativeApp();
+    }
+
 
 }
