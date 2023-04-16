@@ -1,10 +1,7 @@
 package io.github.mfaisalkhatri.ios.tests;
 
 
-import io.github.mfaisalkhatri.ios.pages.FormPage;
-import io.github.mfaisalkhatri.ios.pages.HomePage;
-import io.github.mfaisalkhatri.ios.pages.SwipePage;
-import io.github.mfaisalkhatri.ios.pages.WebViewPage;
+import io.github.mfaisalkhatri.ios.pages.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -65,6 +62,13 @@ public class IOSTests extends BaseTest {
 
         assertEquals(webViewPage.getMainPageText(), "Next-gen browser and mobile automation test framework for Node.js");
         webViewPage.switchToNativeApp();
+    }
+
+    @Test
+    public void testDragAndDrop() {
+        DragPage dragPage = new DragPage();
+        dragPage.dragAndDropPrices();
+        assertEquals(dragPage.congratulationsText(), "Congratulations You made it, click retry if you want to try it again. Retry");
     }
 
 

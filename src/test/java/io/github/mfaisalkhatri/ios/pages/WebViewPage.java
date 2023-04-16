@@ -17,9 +17,8 @@ public class WebViewPage {
 
     public void switchToWebView() {
         Set<String> contextNames = getDriver().getContextHandles();
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.until(d -> contextNames.size() > 1);
-        
         getDriver().context(contextNames.toArray()[1].toString());
         //getDriver().context("WEBVIEW_com.wdiodemoapp");
     }
