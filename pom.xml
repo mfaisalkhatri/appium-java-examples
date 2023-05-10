@@ -12,13 +12,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appium-java-client-version>8.3.0</appium-java-client-version>
+        <appium-java-client-version>8.5.0</appium-java-client-version>
         <log4jcore.version>2.20.0</log4jcore.version>
         <log4japi.version>2.20.0</log4japi.version>
         <testng.version>7.7.1</testng.version>
-        <maven.compiler.version>3.10.1</maven.compiler.version>
+        <maven.compiler.version>3.11.0</maven.compiler.version>
         <java.release.version>11</java.release.version>
-        <maven.surefire.version>3.0.0-M7</maven.surefire.version>
+        <maven.surefire.version>3.1.0</maven.surefire.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
         <suite-xml>test-suite/testng.xml</suite-xml>
 
@@ -30,23 +30,6 @@
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>${appium-java-client-version}</version>
-            <exclusions>
-
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-remote-driver</artifactId>
-                </exclusion>
-
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-support</artifactId>
-                </exclusion>
-
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -67,13 +50,6 @@
             <artifactId>log4j-api</artifactId>
             <version>${log4japi.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.8.1</version>
-        </dependency>
-
     </dependencies>
 
     <build>
