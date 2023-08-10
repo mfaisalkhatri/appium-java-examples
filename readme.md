@@ -5,7 +5,7 @@
 ## :question: What is this Repository about?
 
 - This repository contains the example code for running Android Mobile Automation tests
-  using [Appium 2.0](https://appium.github.io/appium/docs/en/2.0/intro/)
+  using [Appium 2.0](https://appium.io/docs/en/2.0/intro/)
 - [WebdriverIO demo app](https://github.com/webdriverio/native-demo-app/releases) is used as a demo mobile application
   run tests
 - This repo uses `Maven` as build tool and `TestNG` testing framework to run the tests.
@@ -28,7 +28,11 @@
 ### Pre-Requisite:
 
     - JAVA JDK 11 should be installed
-    - Android Emulator should be created in local machine and running.
+    - Android Emulator should be created in local machine and should be in running state
+    - For running iOS tests, iOS Simulator needs to be started and should be in running state 
+
+### :movie_camera: Tutorial for Installing Android Studio on Windows 10
+[![Watch the video](https://img.youtube.com/vi/CMrfuCR6W94/hqdefault.jpg)](https://youtu.be/CMrfuCR6W94)
 
 - Run the tests using `TestNG`:
 
@@ -40,6 +44,11 @@
 
 ## :writing_hand: Blog Links
 
+- [Beginner’s Guide to Appium 2.0](https://medium.com/@iamfaisalkhatri/beginners-guide-to-appium-2-0-d8118b31837c)
+- [Appium 2 Migration Guide: Migrating From Appium 1.x To Appium 2.x](https://medium.com/@iamfaisalkhatri/appium-2-migration-guide-migrating-from-appium-1-x-to-appium-2-x-f1721b31197)
+- [How To Automate ServiceNow With Appium](https://medium.com/@iamfaisalkhatri/how-to-automate-servicenow-with-appium-8cc4aee3ed44)
+- [Complete Tutorial On Appium Parallel Testing- [With Examples]](https://www.lambdatest.com/blog/appium-parallel-testing/)
+- [React Native Testing For Apps On iOS And Android Using Appium](https://www.lambdatest.com/blog/test-react-native-apps-on-ios-and-android/)
 - [How to Choose Mobile Devices for Testing](https://medium.com/@iamfaisalkhatri/how-to-choose-mobile-devices-for-testing-pcloudy-blog-96179529d0f3)
 - [What is an Android Emulator? How to Start and use it?](https://medium.com/@iamfaisalkhatri/what-is-an-android-emulator-how-to-start-and-use-it-66fdcf52be7e)
 - [How to start Appium Server Programmatically?](https://medium.com/@iamfaisalkhatri/how-to-start-appium-server-programmatically-ec07292ab59)
@@ -57,4 +66,9 @@
 Contact me for Paid trainings related to Test Automation and Software Testing,
 mail me @ `mohammadfaisalkhatri@gmail.com` or ping me on [LinkedIn](https://www.linkedin.com/in/faisalkhatri/)
 
-## :thought_balloon: Checkout the blogs related to Testing on [my website](https://mfaisalkhatri.github.io/) and [medium](https://medium.com/@iamfaisalkhatri)
+## :thought_balloon: Checkout the blogs related to Testing written by me on the following links:
+
+- [Medium Blogs](https://medium.com/@iamfaisalkhatri)
+- [LambdaTest Blogs](https://www.lambdatest.com/blog/author/mfaisalkhatri/)
+- [My Website](https://mfaisalkhatri.github.io)
+
