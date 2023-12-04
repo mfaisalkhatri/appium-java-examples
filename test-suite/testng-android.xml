@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Sample tests for Android">
-    <test name="WebDriverIO Android App Tests" enabled="false">
+    <test name="WebDriverIO Android App Tests" enabled="true">
         <classes>
             <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
@@ -26,7 +26,7 @@
             </class>
         </classes>
     </test>
-    <test name="Android Tests on Mobile Browsers" enabled="true">
+    <test name="Android Tests on Mobile Browsers" enabled="false">
         <classes>
             <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>

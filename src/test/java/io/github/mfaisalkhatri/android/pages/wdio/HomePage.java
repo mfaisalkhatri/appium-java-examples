@@ -1,11 +1,13 @@
 package io.github.mfaisalkhatri.android.pages.wdio;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getAppiumDriver;
 import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 /**
@@ -34,6 +36,7 @@ public class HomePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
                 AppiumBy.androidUIAutomator("new UiSelector().text(\"Demo app for the appium-boilerplate\")"))
         ).getText();
+
     }
 
 }

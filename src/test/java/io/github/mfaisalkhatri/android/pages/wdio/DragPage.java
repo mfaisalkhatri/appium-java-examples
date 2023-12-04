@@ -86,20 +86,20 @@ public class DragPage {
     }
 
 
-    private Point getElementCenter(WebElement element) {
-        var location = element.getLocation();
-        var size = element.getSize();
+    private Point getElementCenter(final WebElement element) {
+        final var location = element.getLocation();
+        final var size = element.getSize();
 
         return new Point(location.getX() + (size.getWidth() / 2), location.getY() + (size.getHeight() / 2));
 
     }
 
-    private void dragAndDrop(WebElement dragMe, WebElement dropTo) {
-        Point source = getElementCenter(dragMe);
-        Point target = getElementCenter(dropTo);
+    private void dragAndDrop(final WebElement dragMe, final WebElement dropTo) {
+        final Point source = getElementCenter(dragMe);
+        final Point target = getElementCenter(dropTo);
 
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence dragAndDrop = new Sequence(finger, 1);
+        final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        final Sequence dragAndDrop = new Sequence(finger, 1);
         dragAndDrop.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), source.x, source.y));
         dragAndDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         dragAndDrop.addAction(new Pause(finger, ofMillis(600)));
@@ -111,7 +111,7 @@ public class DragPage {
     }
 
     public void dragAndDropPrices() {
-        HomePage homePage = new HomePage();
+        final HomePage homePage = new HomePage();
         homePage.openMenu("Drag");
         dragAndDrop(dragLeft1(), dropLeft1());
         dragAndDrop(dragLeft2(), dropLeft2());

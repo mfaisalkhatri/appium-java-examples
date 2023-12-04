@@ -6,10 +6,12 @@ import io.appium.java_client.remote.AutomationName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.time.Duration;
 
-import static io.github.mfaisalkhatri.server.AppiumServerManager.*;
+import static io.github.mfaisalkhatri.server.AppiumServerManager.stopServer;
 
 public class IOSDriverManager {
 
@@ -22,17 +24,17 @@ public class IOSDriverManager {
         return IOSDriverManager.DRIVER.get();
     }
 
-    private static void setDriver(IOSDriver driver) {
+    private static void setDriver(final IOSDriver driver) {
         IOSDriverManager.DRIVER.set(driver);
     }
 
 
     private static XCUITestOptions xcuiTestOptions() {
         return new XCUITestOptions()
-                .setDeviceName("iPhone 14 Pro Max")
+                .setDeviceName("iPhone 15 Pro Max")
                 .setAutomationName(AutomationName.IOS_XCUI_TEST)
                 .setNewCommandTimeout(Duration.ofSeconds(60))
-                .setPlatformVersion("16.2")
+                .setPlatformVersion("17.0")
                 .setApp(APP_PATH)
                 .setNoReset(false);
     }
@@ -47,8 +49,13 @@ public class IOSDriverManager {
     }
 
     public static void createIOSDriver() {
-        startServer("ios");
-        setDriver(new IOSDriver(getService().getUrl(), xcuiTestOptions()));
+        //startServer("ios");
+        //setDriver(new IOSDriver(getService().getUrl(), xcuiTestOptions()));
+        try {
+            setDriver(new IOSDriver(new URL("http://127.0.0.1:4723/"), xcuiTestOptions()));
+        } catch (final MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
         setupDriverTimeouts();
     }
 

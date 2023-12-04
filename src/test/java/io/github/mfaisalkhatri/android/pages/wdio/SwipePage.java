@@ -19,17 +19,17 @@ public class SwipePage {
 
 
     public SwipePage() {
-        HomePage homePage = new HomePage();
+        final HomePage homePage = new HomePage();
         homePage.openMenu("Swipe");
     }
 
     public void performHorizontalSwipe() {
 
-        WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
+        final WebElement sourceElement = getDriver().findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"card\"])[1]"));
 
-        Point source = sourceElement.getLocation();
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
+        final Point source = sourceElement.getLocation();
+        final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        final Sequence swipe = new Sequence(finger, 1);
         swipe.addAction(
                 finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), source.x, source.y));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
@@ -43,16 +43,16 @@ public class SwipePage {
     }
 
     public void performVerticalSwipe() {
-        var screenSize = getDriver()
+        final var screenSize = getDriver()
                 .manage()
                 .window()
                 .getSize();
-        var xCenter = screenSize.width / 2;
-        var yCenter = screenSize.height / 2;
-        var center = new Point(xCenter, yCenter);
+        final var xCenter = screenSize.width / 2;
+        final var yCenter = screenSize.height / 2;
+        final var center = new Point(xCenter, yCenter);
 
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
+        final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        final Sequence swipe = new Sequence(finger, 1);
         swipe.addAction(
                 finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), center.x, center.y));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
@@ -66,14 +66,14 @@ public class SwipePage {
     }
 
     public String swipeAndFindElement() {
-        WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
+        final WebElement targetElement = getDriver().findElement(AppiumBy.androidUIAutomator
                 ("new UiScrollable(new UiSelector()" +
                         ".scrollable(true)).scrollIntoView(new UiSelector().text(\"You found me!!!\"))"));
         return targetElement.getText();
     }
 
     public String swipeTillElement() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(1));
+        final WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(1));
 
         WebElement targetElement = null;
         boolean found = false;
@@ -82,7 +82,7 @@ public class SwipePage {
                 targetElement = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.
                         androidUIAutomator("new UiSelector().text(\"You found me!!!\")")));
                 found = true;
-            } catch (TimeoutException e) {
+            } catch (final TimeoutException e) {
                 performVerticalSwipe();
             }
         }
