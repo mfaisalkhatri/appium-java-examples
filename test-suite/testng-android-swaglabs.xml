@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Swag Labs tests for Android">
+    <test name="End to End Checkout Flow Tests" enabled="true">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.SwagLabsTests">
+                <methods>
+                    <include name="verifyCheckoutFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Product Filter and Toggle Button Tests" enabled="true">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.SwagLabsTests">
+                <methods>
+                    <exclude name="verifyCheckoutFlow"/>
+                    <include name="verifyFilterOnProducts"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Product Description Page Tests" enabled="true">
+        <classes>
+            <class name="io.github.mfaisalkhatri.android.tests.SwagLabsTests">
+                <methods>
+                    <exclude name="verifyCheckoutFlow"/>
+                    <exclude name="verifyFilterOnProducts"/>
+                    <include name="verifyPDPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

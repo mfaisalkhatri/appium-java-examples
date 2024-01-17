@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
  **/
 public class AndroidDriverManager {
     private static final String                     APP_PATH = String.valueOf (
-        Path.of (System.getProperty ("user.dir"), "/src/test/resources/app", "webdriverio-app.apk"));
+        Path.of (System.getProperty ("user.dir"), "/src/test/resources/app", "sampleapk.apk"));
     private static final ThreadLocal<AndroidDriver> DRIVER   = new ThreadLocal<> ();
     private static final Logger                     LOG      = LogManager.getLogger ("DriverManager.class");
 
@@ -30,7 +30,7 @@ public class AndroidDriverManager {
         startServer ("android");
         //        setDriver (new AndroidDriver (getService ().getUrl (), geckoOptionsFirefox ()));
         try {
-            setDriver (new AndroidDriver (new URL ("http://127.0.0.1:4723/wd/hub"), geckoOptionsFirefox ()));
+            setDriver (new AndroidDriver (new URL ("http://127.0.0.1:4723/wd/hub"), uiAutomator2SwagLabs ()));
         } catch (final MalformedURLException e) {
             throw new RuntimeException (e);
         }
@@ -89,14 +89,30 @@ public class AndroidDriverManager {
     private static UiAutomator2Options uiAutomator2OptionsChrome () {
 
         final UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_6_API_31")
+        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_3a_API_34_extension_level_7_x86_64")
             .setAvdLaunchTimeout (Duration.ofSeconds (300))
             .setAvdReadyTimeout (Duration.ofSeconds (100))
-            .setDeviceName ("Pixel_6_API_31")
+            .setDeviceName ("emulator-5554")
             .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
             .withBrowserName ("chrome")
             .setAutoGrantPermissions (true)
             .setNoReset (false);
+
+        return uiAutomator2Options;
+    }
+
+    private static UiAutomator2Options uiAutomator2SwagLabs () {
+
+        final UiAutomator2Options uiAutomator2Options;
+        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_3a_API_34_extension_level_7_x86_64")
+                .setAvdLaunchTimeout (Duration.ofSeconds (300))
+                .setAvdReadyTimeout (Duration.ofSeconds (100))
+                .setDeviceName ("emulator-5554")
+                .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
+                .setAutoGrantPermissions (true)
+                .setAppPackage ("com.swaglabsmobileapp")
+                .setAppActivity ("com.swaglabsmobileapp.MainActivity")
+                .setNoReset (false);
 
         return uiAutomator2Options;
     }

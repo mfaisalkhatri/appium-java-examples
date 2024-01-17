@@ -26,7 +26,7 @@ public class AppiumServerManager {
                 .withArgument (BASEPATH, "/wd/hub")
                 .withArgument (SESSION_OVERRIDE)
                 .withArgument (LOG_LEVEL, "info")
-                .withArgument (USE_DRIVERS, "gecko");
+                .withArgument (USE_DRIVERS, "uiautomator2");
             //.withArgument (ALLOW_INSECURE, "chromedriver_autodownload");
         } else if (platformName.equalsIgnoreCase ("ios")) {
             builder.withIPAddress ("127.0.0.1")
