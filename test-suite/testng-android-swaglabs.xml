@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Appium Swag Labs tests for Android">
+    <listeners>
+        <listener class-name="io.github.mfaisalkhatri.listeners.ExtentReportListener"></listener>
+    </listeners>
     <test name="End to End Checkout Flow Tests" enabled="true">
         <classes>
             <class name="io.github.mfaisalkhatri.android.tests.SwagLabsTests">

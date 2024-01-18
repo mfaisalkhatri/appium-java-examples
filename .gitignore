@@ -12,7 +12,6 @@
 /bin/
 /test-output/
 /logs/
-/reports/
 
 # Mac OSX
 .DS_Store

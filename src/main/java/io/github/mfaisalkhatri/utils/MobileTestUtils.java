@@ -1,17 +1,18 @@
 package io.github.mfaisalkhatri.utils;
 
 import com.google.common.collect.ImmutableList;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 import static io.github.mfaisalkhatri.drivers.AndroidDriverManager.getDriver;
 
 public class MobileTestUtils {
+
     public static void scroll(WebElement panel, ScrollDirection dir, double scrollRatio) {
         Point midPoint;
         Dimension size;
@@ -64,4 +65,11 @@ public class MobileTestUtils {
     public enum ScrollDirection {
         UP, DOWN, LEFT, RIGHT
     }
+
+    public static String getCurrentDate() {
+        SimpleDateFormat myformat = new SimpleDateFormat("HH_mm_ss_dd_MM_yyyy");
+        String newFormat = myformat.format(new Date());
+        return newFormat;
+    }
+
 }
