@@ -1,6 +1,7 @@
 package io.github.mfaisalkhatri.utils;
 
 import com.google.common.collect.ImmutableList;
+import io.github.mfaisalkhatri.logging.Log;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
@@ -35,12 +36,16 @@ public class MobileTestUtils {
         int right = midPoint.x + (int) (midPoint.x * scrollRatio);
 
         if (dir == ScrollDirection.UP) {
+            Log.info("Scrolled up");
             swipe(new Point(midPoint.x, top), new Point(midPoint.x, bottom), Duration.ofSeconds(5));
         } else if (dir == ScrollDirection.DOWN) {
+            Log.info("Scrolled down");
             swipe(new Point(midPoint.x, bottom), new Point(midPoint.x, top), Duration.ofSeconds(5));
         } else if (dir == ScrollDirection.LEFT) {
+            Log.info("Scrolled left");
             swipe(new Point(left, midPoint.y), new Point(right, midPoint.y), Duration.ofSeconds(5));
         } else {
+            Log.info("Scrolled right");
             swipe(new Point(right, midPoint.y), new Point(left, midPoint.y), Duration.ofSeconds(5));
         }
     }
@@ -70,6 +75,11 @@ public class MobileTestUtils {
         SimpleDateFormat myformat = new SimpleDateFormat("HH_mm_ss_dd_MM_yyyy");
         String newFormat = myformat.format(new Date());
         return newFormat;
+    }
+
+    public static String captureScreenshot() {
+        String screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);
+        return screenshot;
     }
 
 }

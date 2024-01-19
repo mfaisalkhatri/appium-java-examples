@@ -3,6 +3,7 @@
 <suite name="Appium Swag Labs tests for Android">
     <listeners>
         <listener class-name="io.github.mfaisalkhatri.listeners.ExtentReportListener"></listener>
+        <listener class-name="io.github.mfaisalkhatri.listeners.AnnotationTransformer"/>
     </listeners>
     <test name="End to End Checkout Flow Tests" enabled="true">
         <classes>

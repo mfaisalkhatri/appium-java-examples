@@ -1,0 +1,47 @@
+[INFO ] 2024-01-19 18:02:12.268 [main] Log - Setting up the android driver - calling createAndroidDriver() method!
+[INFO ] 2024-01-19 18:02:23.118 [main] Log - Creating the test report
+[INFO ] 2024-01-19 18:02:23.124 [main] Log - Logging in as the standard user via login page of Swag Labs App
+[INFO ] 2024-01-19 18:02:26.663 [main] Log - Verifying the products page title
+[INFO ] 2024-01-19 18:02:27.768 [main] Log - Adding the products
+[INFO ] 2024-01-19 18:02:29.288 [main] Log - Scrolled down
+[INFO ] 2024-01-19 18:02:35.977 [main] Log - Clicking the cart button
+[INFO ] 2024-01-19 18:02:36.659 [main] Log - Clicking the checkout button
+[INFO ] 2024-01-19 18:02:37.714 [main] Log - Scrolled down
+[INFO ] 2024-01-19 18:02:43.766 [main] Log - Scrolled down
+[INFO ] 2024-01-19 18:02:49.776 [main] Log - Entering the first name
+[INFO ] 2024-01-19 18:02:51.284 [main] Log - Entering the last name
+[INFO ] 2024-01-19 18:02:52.399 [main] Log - Entering the postal code
+[INFO ] 2024-01-19 18:02:52.964 [main] Log - Clicking on the continue button
+[INFO ] 2024-01-19 18:02:53.547 [main] Log - Clicking on the finish button
+[INFO ] 2024-01-19 18:02:54.661 [main] Log - Scrolled down
+[INFO ] 2024-01-19 18:03:00.598 [main] Log - Scrolled down
+[INFO ] 2024-01-19 18:03:06.561 [main] Log - Verifying the thank you text post checkout
+[INFO ] 2024-01-19 18:03:07.750 [main] Log - Verifying the thank you for you order text
+[INFO ] 2024-01-19 18:03:07.868 [main] Log - Verifying the checkout complete text
+[INFO ] 2024-01-19 18:03:07.996 [main] Log - verifyCheckoutFlow Test Passed
+[INFO ] 2024-01-19 18:03:08.515 [main] Log - Quitting and removing the android driver - calling quitSession() method!
+[INFO ] 2024-01-19 18:03:08.515 [main] class - Closing the driver...
+[INFO ] 2024-01-19 18:03:08.845 [main] Log - Flushing the test report data for current session
+[INFO ] 2024-01-19 18:03:09.096 [main] Log - Setting up the android driver - calling createAndroidDriver() method!
+[INFO ] 2024-01-19 18:03:18.986 [main] Log - Creating the test report
+[INFO ] 2024-01-19 18:03:18.987 [main] Log - Logging in as the standard user via login page of Swag Labs App
+[INFO ] 2024-01-19 18:03:21.596 [main] Log - Verifying the products page title
+[INFO ] 2024-01-19 18:03:22.694 [main] Log - Filtering the products
+[INFO ] 2024-01-19 18:03:23.710 [main] Log - Tapping on the toggle view button and verifying if the price value is not null
+[INFO ] 2024-01-19 18:03:25.285 [main] Log - Assert the price of first item post toggle
+[INFO ] 2024-01-19 18:03:26.036 [main] Log - verifyFilterOnProducts Test Passed
+[INFO ] 2024-01-19 18:03:26.916 [main] Log - Quitting and removing the android driver - calling quitSession() method!
+[INFO ] 2024-01-19 18:03:26.916 [main] class - Closing the driver...
+[INFO ] 2024-01-19 18:03:27.306 [main] Log - Flushing the test report data for current session
+[INFO ] 2024-01-19 18:03:27.337 [main] Log - Setting up the android driver - calling createAndroidDriver() method!
+[INFO ] 2024-01-19 18:03:37.252 [main] Log - Creating the test report
+[INFO ] 2024-01-19 18:03:37.253 [main] Log - Logging in as the standard user via login page of Swag Labs App
+[INFO ] 2024-01-19 18:03:39.928 [main] Log - Verifying the products page title
+[INFO ] 2024-01-19 18:03:41.029 [main] Log - Filtering the products
+[INFO ] 2024-01-19 18:03:42.009 [main] Log - Checking first item post filter and toggle operations to open PDPage
+[INFO ] 2024-01-19 18:03:42.828 [main] Log - Verify if the back button is displayed on PDPage
+[INFO ] 2024-01-19 18:03:43.837 [main] Log - Get the name of product on PDPage
+[INFO ] 2024-01-19 18:03:43.950 [main] Log - verifyPDPage Test Passed
+[INFO ] 2024-01-19 18:03:44.665 [main] Log - Quitting and removing the android driver - calling quitSession() method!
+[INFO ] 2024-01-19 18:03:44.665 [main] class - Closing the driver...
+[INFO ] 2024-01-19 18:03:45.055 [main] Log - Flushing the test report data for current session
