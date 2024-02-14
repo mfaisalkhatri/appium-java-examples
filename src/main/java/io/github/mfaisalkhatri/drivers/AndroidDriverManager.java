@@ -30,7 +30,7 @@ public class AndroidDriverManager {
         startServer ("android");
         //        setDriver (new AndroidDriver (getService ().getUrl (), geckoOptionsFirefox ()));
         try {
-            setDriver (new AndroidDriver (new URL ("http://127.0.0.1:4723/wd/hub"), geckoOptionsFirefox ()));
+            setDriver (new AndroidDriver (new URL ("http://127.0.0.1:4723/wd/hub"),uiAutomator2OptionsWdio()));
         } catch (final MalformedURLException e) {
             throw new RuntimeException (e);
         }
@@ -89,10 +89,10 @@ public class AndroidDriverManager {
     private static UiAutomator2Options uiAutomator2OptionsChrome () {
 
         final UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_6_API_31")
+        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_6_API_34")
             .setAvdLaunchTimeout (Duration.ofSeconds (300))
             .setAvdReadyTimeout (Duration.ofSeconds (100))
-            .setDeviceName ("Pixel_6_API_31")
+            .setDeviceName ("Pixel_6_API_34")
             .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
             .withBrowserName ("chrome")
             .setAutoGrantPermissions (true)
@@ -119,10 +119,10 @@ public class AndroidDriverManager {
 
     private static UiAutomator2Options uiAutomator2OptionsWdio () {
         final UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_XL_API_33")
+        uiAutomator2Options = new UiAutomator2Options ().setAvd ("Pixel_6_Pro_API_34")
             .setAvdLaunchTimeout (Duration.ofSeconds (300))
             .setAvdReadyTimeout (Duration.ofSeconds (100))
-            .setDeviceName ("Pixel_XL_API_33")
+            .setDeviceName ("Pixel_6_Pro_API_34")
             .setAutomationName (AutomationName.ANDROID_UIAUTOMATOR2)
             .setApp (APP_PATH)
             .setAppPackage ("com.wdiodemoapp")
