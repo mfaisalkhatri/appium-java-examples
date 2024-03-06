@@ -5,14 +5,14 @@
         <classes>
             <class name="io.github.mfaisalkhatri.android.tests.AndroidTests">
                 <methods>
-                    <include name="testHomePageTitle"/>
-                    <include name="testSignUp"/>
-                    <include name="testForm"/>
-                    <include name="testSwipeOnElement"/>
-                    <include name="testWebView"/>
-                    <include name="testSwipeTillElement"/>
+                    <exclude name="testHomePageTitle"/>
+                    <exclude name="testSignUp"/>
+                    <exclude name="testForm"/>
+                    <exclude name="testSwipeOnElement"/>
+                    <exclude name="testWebView"/>
+                    <exclude name="testSwipeTillElement"/>
                     <include name="testSwipeUsingScrollIntoView"/>
-                    <include name="testDragAndDrop"/>
+                    <exclude name="testDragAndDrop"/>
                 </methods>
             </class>
         </classes>

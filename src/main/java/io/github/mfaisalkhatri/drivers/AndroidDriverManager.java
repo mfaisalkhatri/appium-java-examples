@@ -124,7 +124,7 @@ public class AndroidDriverManager {
 
     private static UiAutomator2Options uiAutomator2OptionsWdio() {
         final UiAutomator2Options uiAutomator2Options;
-        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_XL_API_33")
+        uiAutomator2Options = new UiAutomator2Options().setAvd("Pixel_6_API_34")
                 .setAvdLaunchTimeout(Duration.ofSeconds(300))
                 .setAvdReadyTimeout(Duration.ofSeconds(100))
                 .setDeviceName("Pixel_XL_API_33")
