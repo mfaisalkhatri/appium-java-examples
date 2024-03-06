@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Sample tests for IOS" parallel="tests">
+    <test name="IOS Tests on IPhone 15">
+        <classes>
+            <class name="io.github.mfaisalkhatri.ios.paralleltests.tests.IOSTestOnIPhoneFifteen">
+            </class>
+        </classes>
+    </test>
+    <test name="IOS tests on IPhone 15 Pro">
+        <classes>
+            <class name="io.github.mfaisalkhatri.ios.paralleltests.tests.IOSTestOnIPhoneFifteenPro">
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
