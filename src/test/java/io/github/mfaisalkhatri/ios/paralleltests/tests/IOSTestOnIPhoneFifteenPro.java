@@ -25,7 +25,6 @@ public class IOSTestOnIPhoneFifteenPro extends BaseTest {
                 .setApp(APP_PATH)
                 .setAutomationName(AutomationName.IOS_XCUI_TEST)
                 .setNewCommandTimeout(Duration.ofSeconds(60))
-                .setPlatformVersion("16.2")
                 .setNoReset(false);
 
         try {
