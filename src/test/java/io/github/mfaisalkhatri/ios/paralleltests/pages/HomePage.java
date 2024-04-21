@@ -1,19 +1,20 @@
-package io.github.mfaisalkhatri.ios.pages;
+package io.github.mfaisalkhatri.ios.paralleltests.pages;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static io.github.mfaisalkhatri.drivers.IOSDriverManager.getDriver;
-
 public class HomePage {
 
     private final WebDriverWait wait;
+    private final IOSDriver iosDriver;
 
-    public HomePage() {
-        this.wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+    public HomePage(final IOSDriver iosDriver) {
+        this.iosDriver = iosDriver;
+        this.wait = new WebDriverWait(this.iosDriver, Duration.ofSeconds(10));
     }
 
     public String getTitle() {
@@ -22,13 +23,7 @@ public class HomePage {
     }
 
     public void openMenu(final String menuName) {
-        getDriver().findElement(AppiumBy.accessibilityId(menuName)).click();
+        this.wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.accessibilityId(menuName))).click();
 
     }
-
-    public String tagLine() {
-        return this.wait.until(ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.accessibilityId("Demo app for the appium-boilerplate"))).getText();
-    }
-
 }

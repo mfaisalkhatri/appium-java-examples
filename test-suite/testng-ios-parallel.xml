@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Sample tests for IOS" parallel="tests">
+    <test name="IOS Tests on IPhone 15">
+        <parameter name="udid" value="BB7125C2-174B-43D7-9B88-A982C40C006A"/>
+        <parameter name="devicename" value="iPhone 15"/>
+        <parameter name="platformversion" value="17.2"/>
+        <parameter name="wdaLocalPort" value="8100"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.ios.paralleltests.tests.IOSTestOnIPhoneFifteen">
+            </class>
+        </classes>
+    </test>
+    <test name="IOS tests on IPhone 15 Pro">
+        <parameter name="udid" value="E16563D0-CD8D-473E-BB3F-82A27BC4AEC7"/>
+        <parameter name="devicename" value="iPhone 15 Pro"/>
+        <parameter name="platformversion" value="17.2"/>
+        <parameter name="wdaLocalPort" value="8101"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.ios.paralleltests.tests.IOSTestOnIPhoneFifteenPro">
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

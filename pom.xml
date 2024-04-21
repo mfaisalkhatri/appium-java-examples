@@ -12,9 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appium-java-client-version>9.0.0</appium-java-client-version>
-        <log4jcore.version>2.22.1</log4jcore.version>
-        <log4japi.version>2.22.1</log4japi.version>
+        <appium-java-client-version>8.5.0</appium-java-client-version>
+        <log4jcore.version>2.20.0</log4jcore.version>
+        <log4japi.version>2.20.0</log4japi.version>
         <testng.version>7.7.1</testng.version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <java.release.version>11</java.release.version>
