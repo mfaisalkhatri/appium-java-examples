@@ -12,13 +12,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appium-java-client-version>9.1.0</appium-java-client-version>
+        <appium-java-client-version>9.3.0</appium-java-client-version>
         <log4jcore.version>2.23.0</log4jcore.version>
         <log4japi.version>2.23.0</log4japi.version>
-        <testng.version>7.9.0</testng.version>
-        <maven.compiler.version>3.12.1</maven.compiler.version>
+        <testng.version>7.10.0</testng.version>
+        <maven.compiler.version>3.13.0</maven.compiler.version>
         <java.release.version>17</java.release.version>
-        <maven.surefire.version>3.2.5</maven.surefire.version>
+        <maven.surefire.version>3.5.2</maven.surefire.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
         <suite-xml>test-suite/testng.xml</suite-xml>
 
@@ -88,6 +88,26 @@
                     </suiteXmlFiles>
                     <argLine>${argLine}</argLine>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.6.3</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
