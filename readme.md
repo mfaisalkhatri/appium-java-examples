@@ -1,5 +1,3 @@
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-
 ## Don't forget to give a :star: to make the project popular.
 
 ## :question: What is this Repository about?
@@ -66,9 +64,8 @@
 Contact me for Paid trainings related to Test Automation and Software Testing,
 mail me @ `mohammadfaisalkhatri@gmail.com` or ping me on [LinkedIn](https://www.linkedin.com/in/faisalkhatri/)
 
-## :thought_balloon: Checkout the blogs related to Testing written by me on the following links:
+## :thought_balloon: Checkout the tutorial blogs related to Software Testing and Test Automation on the following links:
 
 - [Medium Blogs](https://medium.com/@iamfaisalkhatri)
 - [LambdaTest Blogs](https://www.lambdatest.com/blog/author/mfaisalkhatri/)
 - [My Website](https://mfaisalkhatri.github.io)
-
